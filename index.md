@@ -2,11 +2,11 @@
 layout: default
 title: Home
 nav_order: 1
-description: "SAILER DOCS"
+description: "PMNB DOCS"
 permalink: /
 ---
 
-# 소스 재사용 정리해둔 DOCS 입니다. 
+# 소스 재사용 DOCS 입니다. 
 {: .no_toc .fw-500 }
 
 ## Table of contents
