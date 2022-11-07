@@ -1,0 +1,152 @@
+{"0": {
+    "doc": "Backend",
+    "title": "Prisma + Apollo + Grahpql 2022",
+    "content": " ",
+    "url": "/docs/setting/backend/#prisma--apollo--grahpql-2022",
+    "relUrl": "/docs/setting/backend/#prisma--apollo--grahpql-2022"
+  },"1": {
+    "doc": "Backend",
+    "title": "Table of contents",
+    "content": ". | apollo, graphql 설치 | babel, nodemon 설치 | prisma 설치 . | Client.js 파일 생성 | prisma studio 실행 | . | graphql-tools 설치 | server.js 설정 | . ",
+    "url": "/docs/setting/backend/#table-of-contents",
+    "relUrl": "/docs/setting/backend/#table-of-contents"
+  },"2": {
+    "doc": "Backend",
+    "title": "Github",
+    "content": "Github . $ git clone https://github.com/pmnb34/Basic_Backend_Setting_2022.git . ",
+    "url": "/docs/setting/backend/#github",
+    "relUrl": "/docs/setting/backend/#github"
+  },"3": {
+    "doc": "Backend",
+    "title": "apollo, graphql 설치",
+    "content": "apollo 는 graphql 을 쉽게 사용할수 있게 해주는 라이브러리 입니다. apollo 는 server 와 client 에서 사용 가능합니다. apollo-client 는 상태관리 라이브러리로 redux, zustand 동일하지만 apollo-client 는 Graphql 기반으로 데이터를 가져오며, redux, zustand는 REST API 기반으로 데이터를 가져오기때문에 REST API 의 문제점인, overfetching, underfetching 등의 문제를 보완할 수 있다. apollo 공식문서 (https://www.apollographql.com/docs/) graphql 공식문서 (https://graphql.org/learn/) . $ npm i @apollo/server graphql . ",
+    "url": "/docs/setting/backend/#apollo-graphql-%EC%84%A4%EC%B9%98",
+    "relUrl": "/docs/setting/backend/#apollo-graphql-설치"
+  },"4": {
+    "doc": "Backend",
+    "title": "babel, nodemon 설치",
+    "content": "babel 은 ES6 이상의 최신 문법의 자바스크립트를 ES5 이하의 이전 문법으로 컴파일해주는 라이브러리입니다. 최신 문법을 지원하지 않는 환경에서도 최신 문법을 사용할수 있게 해준다. nodemon 은 서버의 코드가 변경될때마다 자동 재시작해주는 모듈입니다. $ npm i @babel/node $ npm i @babel/preset-env $ npm i @babel/core $ npm i nodemon . # babel.config.json # 파일 생성 및 수정 { \"presets\": [\"@babel/preset-env\"] } . # package.json # scripts 부분 수정 { \"dev\": \"nodemon --exec babel-node src/server --delay 2\", } . ",
+    "url": "/docs/setting/backend/#babel-nodemon-%EC%84%A4%EC%B9%98",
+    "relUrl": "/docs/setting/backend/#babel-nodemon-설치"
+  },"5": {
+    "doc": "Backend",
+    "title": "prisma 설치",
+    "content": "prisma 는 SQL 문법을 사용하지 않고, js문법으로 DB를 관리할 수 있는 ORM(Object Relational Model) 입니다. | schema 를 작성하여 모델에 대해 정의합니다. | migrate 를 실행하여 SQL 테이블을 생성합니다. | . prisma 공식문서 (https://www.prisma.io/docs/) . $ npm i prisma --save-dev $ npx prisma init . # schema.prisma # schema.prisma 파일 생성 및 수정 # schema 를 작성하여 모델에 대해 정의 generator client { provider = \"prisma-client-js\" } datasource db { provider = \"postgresql\" url = env(\"DATABASE_URL\") } model User { id Int @id @default(autoincrement()) firstName String lastName String? userName String @unique email String @unique password String posts Post[] createdAt DateTime @default(now()) updatedAt DateTime @updatedAt } model Post { id Int @id @default(autoincrement()) title String published Boolean @default(true) authorId Int author User @relation(fields: [authorId], references: [id]) } . # migrate 를 실행하여 SQL 테이블을 생성 $ npx prisma migrate dev . Client.js 파일 생성 . prisma client 는 DB에 대한 CRUD를 수행한다. // client.js // prisma client 를 생성한다. // 필요한 곳에서 client를 import 하여 사용한다. // import client from \"../client\"; import { PrismaClient } from \"@prisma/client\"; const client = new PrismaClient(); export default client; . prisma studio 실행 . prisma studio 는 웹에서 GUI형태의 DB를 확인할 수 있다. $ npx prisma studio . ",
+    "url": "/docs/setting/backend/#prisma-%EC%84%A4%EC%B9%98",
+    "relUrl": "/docs/setting/backend/#prisma-설치"
+  },"6": {
+    "doc": "Backend",
+    "title": "graphql-tools 설치",
+    "content": "graphql-tools 는 분리된 graphql을 합쳐주는 역할을 한다. $ npm i @graphql-tools/schema $ npm i @graphql-tools/load-files $ npm i @graphql-tools/merge . // schema.js // 분리되어있는 typeDefs.js , queries.js, mutations.js 를 찾아서 합쳐준다. // schema 로 import 하여 사용한다. // import schema from \"./schema\"; import { makeExecutableSchema } from \"@graphql-tools/schema\"; import { loadFilesSync } from \"@graphql-tools/load-files\"; import { mergeResolvers, mergeTypeDefs } from \"@graphql-tools/merge\"; const loadedTypes = loadFilesSync(`${__dirname}/**/*.typeDefs.js`); const loadedResolvers = loadFilesSync( `${__dirname}/**/*.{queries,mutations}.js` ); const typeDefs = mergeTypeDefs(loadedTypes); const resolvers = mergeResolvers(loadedResolvers); const schema = makeExecutableSchema({ typeDefs, resolvers }); export default schema; . ",
+    "url": "/docs/setting/backend/#graphql-tools-%EC%84%A4%EC%B9%98",
+    "relUrl": "/docs/setting/backend/#graphql-tools-설치"
+  },"7": {
+    "doc": "Backend",
+    "title": "server.js 설정",
+    "content": "// server.js require(\"dotenv\").config(); import http from \"http\"; import express from \"express\"; import logger from \"morgan\"; import { ApolloServer } from \"apollo-server-express\"; import schema from \"./schema\"; const startApolloServer = async (schema) =&gt; { const PORT = process.env.PORT; const apollo = new ApolloServer({ schema, }); await apollo.start(); const app = express(); app.use(logger(\"dev\")); apollo.applyMiddleware({ app }); const httpServer = http.createServer(app); httpServer.listen(PORT, () =&gt; { console.log(`🚀Server is running on http://localhost:${PORT} ✅`); }); } startApolloServer(schema); . $ npm run dev . ",
+    "url": "/docs/setting/backend/#serverjs-%EC%84%A4%EC%A0%95",
+    "relUrl": "/docs/setting/backend/#serverjs-설정"
+  },"8": {
+    "doc": "Backend",
+    "title": "Backend",
+    "content": " ",
+    "url": "/docs/setting/backend/",
+    "relUrl": "/docs/setting/backend/"
+  },"9": {
+    "doc": "Frontend",
+    "title": "React + Apollo/Client + Graphql 2022",
+    "content": " ",
+    "url": "/docs/setting/frontend/#react--apolloclient--graphql-2022",
+    "relUrl": "/docs/setting/frontend/#react--apolloclient--graphql-2022"
+  },"10": {
+    "doc": "Frontend",
+    "title": "Table of contents",
+    "content": ". | react 설치 | apollo, graphql 설치 | react 실행 . | app.js 설정 | routes.js 설정 | styled-components 설정 | . | . ",
+    "url": "/docs/setting/frontend/#table-of-contents",
+    "relUrl": "/docs/setting/frontend/#table-of-contents"
+  },"11": {
+    "doc": "Frontend",
+    "title": "Github",
+    "content": "Github . $ git clone https://github.com/pmnb34/Basic_Frontend_Setting_2022.git . ",
+    "url": "/docs/setting/frontend/#github",
+    "relUrl": "/docs/setting/frontend/#github"
+  },"12": {
+    "doc": "Frontend",
+    "title": "react 설치",
+    "content": "react 를 처음부터 세팅하려면 많은 세팅이 필요합니다. create-react-app은 이부분을 해결하고 간편하게 react를 바로 시작할 수 있습니다. $ npx create-react-app react_apollo_graphql . $ npm start . ",
+    "url": "/docs/setting/frontend/#react-%EC%84%A4%EC%B9%98",
+    "relUrl": "/docs/setting/frontend/#react-설치"
+  },"13": {
+    "doc": "Frontend",
+    "title": "apollo, graphql 설치",
+    "content": "apollo 는 graphql 을 쉽게 사용할수 있게 해주는 라이브러리 입니다. apollo 는 server 와 client 에서 사용 가능합니다. apollo-client 는 상태관리 라이브러리로 redux, zustand 동일하지만 apollo-client 는 Graphql 기반으로 데이터를 가져오며, redux, zustand는 REST API 기반으로 데이터를 가져오기때문에 REST API 의 문제점인, overfetching, underfetching 등의 문제를 보완할 수 있다. apollo 공식문서 (https://www.apollographql.com/docs/) graphql 공식문서 (https://graphql.org/learn/) . $ npm i @apollo/client graphql . // apollo.js // apollo 서버와 연결 import { ApolloClient, InMemoryCache } from \"@apollo/client\"; export const client = new ApolloClient({ uri: 'http://localhost:4000', cache: new InMemoryCache(), }); . ",
+    "url": "/docs/setting/frontend/#apollo-graphql-%EC%84%A4%EC%B9%98",
+    "relUrl": "/docs/setting/frontend/#apollo-graphql-설치"
+  },"14": {
+    "doc": "Frontend",
+    "title": "react 실행",
+    "content": "app.js 설정 . // app.js // ApolloProvider 세팅 import { ApolloProvider } from '@apollo/client'; import { BrowserRouter as Router, Route, Switch } from \"react-router-dom\"; import { client } from './apollo'; import { routes } from './routes'; import { Layout } from './components/Layout'; import { Home } from './pages/Home'; function App() { return ( &lt;ApolloProvider client={client}&gt; &lt;Router&gt; &lt;Switch&gt; &lt;Route path={routes.home} exact&gt; &lt;Layout&gt; &lt;Home /&gt; &lt;/Layout&gt; &lt;/Route&gt; &lt;Route path={routes.signUp} exact&gt;&lt;/Route&gt; &lt;/Switch&gt; &lt;/Router&gt; &lt;/ApolloProvider&gt; ); } export default App; . routes.js 설정 . // routes.js // route 세팅 export const routes = { home: \"/\", signUp: \"/sign-up\", }; . styled-components 설정 . import styled from \"styled-components\"; import Header from \"./Header\"; const Content = styled.main` margin: 0 auto; margin-top: 45px; max-width: 930px; width: 100%; `; function Layout({ children }) { return ( &lt;&gt; &lt;Header /&gt; &lt;Content&gt;{children}&lt;/Content&gt; &lt;/&gt; ); } export default Layout; . ",
+    "url": "/docs/setting/frontend/#react-%EC%8B%A4%ED%96%89",
+    "relUrl": "/docs/setting/frontend/#react-실행"
+  },"15": {
+    "doc": "Frontend",
+    "title": "Frontend",
+    "content": " ",
+    "url": "/docs/setting/frontend/",
+    "relUrl": "/docs/setting/frontend/"
+  },"16": {
+    "doc": "Home",
+    "title": "소스 재사용 정리해둔 DOCS 입니다.",
+    "content": " ",
+    "url": "/#%EC%86%8C%EC%8A%A4-%EC%9E%AC%EC%82%AC%EC%9A%A9-%EC%A0%95%EB%A6%AC%ED%95%B4%EB%91%94-docs-%EC%9E%85%EB%8B%88%EB%8B%A4",
+    "relUrl": "/#소스-재사용-정리해둔-docs-입니다"
+  },"17": {
+    "doc": "Home",
+    "title": "Table of contents",
+    "content": ". | Backend ( Prisma + Apollo + Grahpql ) | Frontend ( React + Apollo/Client + Graphql ) | . ",
+    "url": "/#table-of-contents",
+    "relUrl": "/#table-of-contents"
+  },"18": {
+    "doc": "Home",
+    "title": "Backend ( Prisma + Apollo + Grahpql )",
+    "content": "#Backend ( Prisma + Apollo + Grahpql ) Prisma + Apollo + Grahpql 로 구성되어있습니다. Github . $ git clone https://github.com/pmnb34/Basic_Backend_Setting_2022.git . ",
+    "url": "/#backend--prisma--apollo--grahpql-",
+    "relUrl": "/#backend--prisma--apollo--grahpql-"
+  },"19": {
+    "doc": "Home",
+    "title": "Frontend ( React + Apollo/Client + Graphql )",
+    "content": "#Frontend ( React + Apollo/Client + Graphql ) React + Apollo/Client + Graphql 로 구성되어있습니다. Github . $ git clone https://github.com/pmnb34/Basic_Frontend_Setting_2022.git . ",
+    "url": "/#frontend--react--apolloclient--graphql-",
+    "relUrl": "/#frontend--react--apolloclient--graphql-"
+  },"20": {
+    "doc": "Home",
+    "title": "Home",
+    "content": " ",
+    "url": "/",
+    "relUrl": "/"
+  },"21": {
+    "doc": "Setting",
+    "title": "Backend / Frontend Setting",
+    "content": ". ",
+    "url": "/docs/setting#backend--frontend-setting",
+    "relUrl": "/docs/setting#backend--frontend-setting"
+  },"22": {
+    "doc": "Setting",
+    "title": "Backend ( Prisma + Apollo + Grahpql )",
+    "content": "Prisma + Apollo + Grahpql 로 구성되어있습니다. Github . $ git clone https://github.com/pmnb34/Basic_Backend_Setting_2022.git . ",
+    "url": "/docs/setting#backend--prisma--apollo--grahpql-",
+    "relUrl": "/docs/setting#backend--prisma--apollo--grahpql-"
+  },"23": {
+    "doc": "Setting",
+    "title": "Frontend ( React + Apollo/Client + Graphql )",
+    "content": "React + Apollo/Client + Graphql 로 구성되어있습니다. Github . $ git clone https://github.com/pmnb34/Basic_Frontend_Setting_2022.git . ",
+    "url": "/docs/setting#frontend--react--apolloclient--graphql-",
+    "relUrl": "/docs/setting#frontend--react--apolloclient--graphql-"
+  },"24": {
+    "doc": "Setting",
+    "title": "Setting",
+    "content": " ",
+    "url": "/docs/setting",
+    "relUrl": "/docs/setting"
+  }
+}
