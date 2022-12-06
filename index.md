@@ -32,3 +32,11 @@ React + Apollo/Client + Graphql 로 구성되어있습니다.
 ```bash
 $ git clone https://github.com/pmnb34/Basic_Frontend_Setting_2022.git
 ```
+
+## Expo ( React Natice = Ios, Android, Web )
+[#Expo ( React Natice = Ios, Android, Web )](/docs/setting/expo/)  
+Expo (React Natice - Ios, Android, Web) 세팅 입니다.
+<!-- [Github](https://github.com/pmnb34/Basic_Frontend_Setting_2022)
+```bash
+$ git clone https://github.com/pmnb34/Basic_Frontend_Setting_2022.git
+``` -->

@@ -53,100 +53,184 @@
     "url": "/docs/setting/backend/",
     "relUrl": "/docs/setting/backend/"
   },"9": {
+    "doc": "Git Blog",
+    "title": "Git Hub Blog ( github + jekyll + just th Docs )",
+    "content": "깃헙 블로그 . ",
+    "url": "/docs/blog/#git-hub-blog--github--jekyll--just-th-docs-",
+    "relUrl": "/docs/blog/#git-hub-blog--github--jekyll--just-th-docs-"
+  },"10": {
+    "doc": "Git Blog",
+    "title": "Table of contents",
+    "content": ". [] git page 설명 [] repository [] jekyll 설치 ruby gem bundler [] git page ruby gem bundler version [] git clone [] jekyll 생성 [] install jekyll new userid.github.io [] bundle install [] bundle exec jekyll serve 실행 [] localhost:4000 [] just the Docs 다운로드 [] just the Docs bundle install [] config 세팅 [] 첫 게시글 작성 [] commit and push [] userid.github.io . ",
+    "url": "/docs/blog/#table-of-contents",
+    "relUrl": "/docs/blog/#table-of-contents"
+  },"11": {
+    "doc": "Git Blog",
+    "title": "Git Blog",
+    "content": " ",
+    "url": "/docs/blog/",
+    "relUrl": "/docs/blog/"
+  },"12": {
+    "doc": "Error",
+    "title": "Error",
+    "content": ". ",
+    "url": "/docs/error",
+    "relUrl": "/docs/error"
+  },"13": {
+    "doc": "Error",
+    "title": "Mac 개발자도구 오류 (git clone 안될때)",
+    "content": "해결방법 . xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun . ",
+    "url": "/docs/error#mac-%EA%B0%9C%EB%B0%9C%EC%9E%90%EB%8F%84%EA%B5%AC-%EC%98%A4%EB%A5%98-git-clone-%EC%95%88%EB%90%A0%EB%95%8C",
+    "relUrl": "/docs/error#mac-개발자도구-오류-git-clone-안될때"
+  },"14": {
+    "doc": "expo",
+    "title": "expo 세팅",
+    "content": " ",
+    "url": "/docs/setting/expo/#expo-%EC%84%B8%ED%8C%85",
+    "relUrl": "/docs/setting/expo/#expo-세팅"
+  },"15": {
+    "doc": "expo",
+    "title": "Table of contents",
+    "content": ". | expo 설치 | . ",
+    "url": "/docs/setting/expo/#table-of-contents",
+    "relUrl": "/docs/setting/expo/#table-of-contents"
+  },"16": {
+    "doc": "expo",
+    "title": "expo 설치",
+    "content": "expo 를 처음부터 세팅하려면 많은 세팅이 필요합니다. create-expo-app은 이부분을 해결하고 간편하게 expo를 바로 시작할 수 있습니다. # expo 설치한다. # expo 앱을 생성한다. # Ios, Android 외에 Web을 사용하기 위한 설치 $ npm install -g expo-cli $ npx create-expo-app expo_app $ npx expo install react-dom react-native-web @expo/webpack-config . $ npm run ios $ npm run android $ npm run web . ",
+    "url": "/docs/setting/expo/#expo-%EC%84%A4%EC%B9%98",
+    "relUrl": "/docs/setting/expo/#expo-설치"
+  },"17": {
+    "doc": "expo",
+    "title": "expo",
+    "content": " ",
+    "url": "/docs/setting/expo/",
+    "relUrl": "/docs/setting/expo/"
+  },"18": {
     "doc": "Frontend",
     "title": "React + Apollo/Client + Graphql 2022",
     "content": " ",
     "url": "/docs/setting/frontend/#react--apolloclient--graphql-2022",
     "relUrl": "/docs/setting/frontend/#react--apolloclient--graphql-2022"
-  },"10": {
+  },"19": {
     "doc": "Frontend",
     "title": "Table of contents",
     "content": ". | react 설치 | apollo, graphql 설치 | react 실행 . | app.js 설정 | routes.js 설정 | styled-components 설정 | . | . ",
     "url": "/docs/setting/frontend/#table-of-contents",
     "relUrl": "/docs/setting/frontend/#table-of-contents"
-  },"11": {
+  },"20": {
     "doc": "Frontend",
     "title": "Github",
     "content": "Github . $ git clone https://github.com/pmnb34/Basic_Frontend_Setting_2022.git . ",
     "url": "/docs/setting/frontend/#github",
     "relUrl": "/docs/setting/frontend/#github"
-  },"12": {
+  },"21": {
     "doc": "Frontend",
     "title": "react 설치",
     "content": "react 를 처음부터 세팅하려면 많은 세팅이 필요합니다. create-react-app은 이부분을 해결하고 간편하게 react를 바로 시작할 수 있습니다. $ npx create-react-app react_apollo_graphql . $ npm start . ",
     "url": "/docs/setting/frontend/#react-%EC%84%A4%EC%B9%98",
     "relUrl": "/docs/setting/frontend/#react-설치"
-  },"13": {
+  },"22": {
     "doc": "Frontend",
     "title": "apollo, graphql 설치",
     "content": "apollo 는 graphql 을 쉽게 사용할수 있게 해주는 라이브러리 입니다. apollo 는 server 와 client 에서 사용 가능합니다. apollo-client 는 상태관리 라이브러리로 redux, zustand 동일하지만 apollo-client 는 Graphql 기반으로 데이터를 가져오며, redux, zustand는 REST API 기반으로 데이터를 가져오기때문에 REST API 의 문제점인, overfetching, underfetching 등의 문제를 보완할 수 있다. apollo 공식문서 (https://www.apollographql.com/docs/) graphql 공식문서 (https://graphql.org/learn/) . $ npm i @apollo/client graphql . // apollo.js // apollo 서버와 연결 import { ApolloClient, InMemoryCache } from \"@apollo/client\"; export const client = new ApolloClient({ uri: 'http://localhost:4000', cache: new InMemoryCache(), }); . ",
     "url": "/docs/setting/frontend/#apollo-graphql-%EC%84%A4%EC%B9%98",
     "relUrl": "/docs/setting/frontend/#apollo-graphql-설치"
-  },"14": {
+  },"23": {
     "doc": "Frontend",
     "title": "react 실행",
     "content": "app.js 설정 . // app.js // ApolloProvider 세팅 import { ApolloProvider } from '@apollo/client'; import { BrowserRouter as Router, Route, Switch } from \"react-router-dom\"; import { client } from './apollo'; import { routes } from './routes'; import { Layout } from './components/Layout'; import { Home } from './pages/Home'; function App() { return ( &lt;ApolloProvider client={client}&gt; &lt;Router&gt; &lt;Switch&gt; &lt;Route path={routes.home} exact&gt; &lt;Layout&gt; &lt;Home /&gt; &lt;/Layout&gt; &lt;/Route&gt; &lt;Route path={routes.signUp} exact&gt;&lt;/Route&gt; &lt;/Switch&gt; &lt;/Router&gt; &lt;/ApolloProvider&gt; ); } export default App; . routes.js 설정 . // routes.js // route 세팅 export const routes = { home: \"/\", signUp: \"/sign-up\", }; . styled-components 설정 . import styled from \"styled-components\"; import Header from \"./Header\"; const Content = styled.main` margin: 0 auto; margin-top: 45px; max-width: 930px; width: 100%; `; function Layout({ children }) { return ( &lt;&gt; &lt;Header /&gt; &lt;Content&gt;{children}&lt;/Content&gt; &lt;/&gt; ); } export default Layout; . ",
     "url": "/docs/setting/frontend/#react-%EC%8B%A4%ED%96%89",
     "relUrl": "/docs/setting/frontend/#react-실행"
-  },"15": {
+  },"24": {
     "doc": "Frontend",
     "title": "Frontend",
     "content": " ",
     "url": "/docs/setting/frontend/",
     "relUrl": "/docs/setting/frontend/"
-  },"16": {
+  },"25": {
     "doc": "Home",
     "title": "소스 재사용 DOCS 입니다.",
     "content": " ",
     "url": "/#%EC%86%8C%EC%8A%A4-%EC%9E%AC%EC%82%AC%EC%9A%A9-docs-%EC%9E%85%EB%8B%88%EB%8B%A4",
     "relUrl": "/#소스-재사용-docs-입니다"
-  },"17": {
+  },"26": {
     "doc": "Home",
     "title": "Table of contents",
-    "content": ". | Backend ( Prisma + Apollo + Grahpql ) | Frontend ( React + Apollo/Client + Graphql ) | . ",
+    "content": ". | Backend ( Prisma + Apollo + Grahpql ) | Frontend ( React + Apollo/Client + Graphql ) | Expo ( React Natice = Ios, Android, Web ) | . ",
     "url": "/#table-of-contents",
     "relUrl": "/#table-of-contents"
-  },"18": {
+  },"27": {
     "doc": "Home",
     "title": "Backend ( Prisma + Apollo + Grahpql )",
     "content": "#Backend ( Prisma + Apollo + Grahpql ) Prisma + Apollo + Grahpql 로 구성되어있습니다. Github . $ git clone https://github.com/pmnb34/Basic_Backend_Setting_2022.git . ",
     "url": "/#backend--prisma--apollo--grahpql-",
     "relUrl": "/#backend--prisma--apollo--grahpql-"
-  },"19": {
+  },"28": {
     "doc": "Home",
     "title": "Frontend ( React + Apollo/Client + Graphql )",
     "content": "#Frontend ( React + Apollo/Client + Graphql ) React + Apollo/Client + Graphql 로 구성되어있습니다. Github . $ git clone https://github.com/pmnb34/Basic_Frontend_Setting_2022.git . ",
     "url": "/#frontend--react--apolloclient--graphql-",
     "relUrl": "/#frontend--react--apolloclient--graphql-"
-  },"20": {
+  },"29": {
+    "doc": "Home",
+    "title": "Expo ( React Natice = Ios, Android, Web )",
+    "content": "#Expo ( React Natice = Ios, Android, Web ) Expo (React Natice - Ios, Android, Web) 세팅 입니다. ",
+    "url": "/#expo--react-natice--ios-android-web-",
+    "relUrl": "/#expo--react-natice--ios-android-web-"
+  },"30": {
     "doc": "Home",
     "title": "Home",
     "content": " ",
     "url": "/",
     "relUrl": "/"
-  },"21": {
+  },"31": {
     "doc": "Setting",
     "title": "Backend / Frontend Setting",
     "content": ". ",
     "url": "/docs/setting#backend--frontend-setting",
     "relUrl": "/docs/setting#backend--frontend-setting"
-  },"22": {
+  },"32": {
     "doc": "Setting",
     "title": "Backend ( Prisma + Apollo + Grahpql )",
     "content": "Prisma + Apollo + Grahpql 로 구성되어있습니다. Github . $ git clone https://github.com/pmnb34/Basic_Backend_Setting_2022.git . ",
     "url": "/docs/setting#backend--prisma--apollo--grahpql-",
     "relUrl": "/docs/setting#backend--prisma--apollo--grahpql-"
-  },"23": {
+  },"33": {
     "doc": "Setting",
     "title": "Frontend ( React + Apollo/Client + Graphql )",
     "content": "React + Apollo/Client + Graphql 로 구성되어있습니다. Github . $ git clone https://github.com/pmnb34/Basic_Frontend_Setting_2022.git . ",
     "url": "/docs/setting#frontend--react--apolloclient--graphql-",
     "relUrl": "/docs/setting#frontend--react--apolloclient--graphql-"
-  },"24": {
+  },"34": {
     "doc": "Setting",
     "title": "Setting",
     "content": " ",
     "url": "/docs/setting",
     "relUrl": "/docs/setting"
+  },"35": {
+    "doc": "Xcrun",
+    "title": "Mac 개발자도구 오류 (git clone 안될때)",
+    "content": " ",
+    "url": "/docs/error/xcrun/#mac-%EA%B0%9C%EB%B0%9C%EC%9E%90%EB%8F%84%EA%B5%AC-%EC%98%A4%EB%A5%98-git-clone-%EC%95%88%EB%90%A0%EB%95%8C",
+    "relUrl": "/docs/error/xcrun/#mac-개발자도구-오류-git-clone-안될때"
+  },"36": {
+    "doc": "Xcrun",
+    "title": "Table of contents",
+    "content": ". | xcrun: error 해결방법 | . ",
+    "url": "/docs/error/xcrun/#table-of-contents",
+    "relUrl": "/docs/error/xcrun/#table-of-contents"
+  },"37": {
+    "doc": "Xcrun",
+    "title": "xcrun: error 해결방법",
+    "content": "Mac 에서 최신버전으로 업데이트후 git clone을 할 경우 높은 확률로 xcrun 에러가 출력된다. 해당 오류는 CommandLineTools 를 인식하지 못해 발생되므로 간단하게 해결해주면된다. $ xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun . 해결방법은 간단하다. 터미널에 하단 명렁어를 입력하면 된다. Xcode 설치 없이 Command Line Tools 를 사용할수 있게 된다. $ xcode-select --install . ",
+    "url": "/docs/error/xcrun/#xcrun-error-%ED%95%B4%EA%B2%B0%EB%B0%A9%EB%B2%95",
+    "relUrl": "/docs/error/xcrun/#xcrun-error-해결방법"
+  },"38": {
+    "doc": "Xcrun",
+    "title": "Xcrun",
+    "content": " ",
+    "url": "/docs/error/xcrun/",
+    "relUrl": "/docs/error/xcrun/"
   }
 }

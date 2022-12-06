@@ -1,8 +1,8 @@
-<!-- ---
+---
 layout: default
 title: Git Blog
 nav_order: 2
---- -->
+---
 
 # Git Hub Blog ( github + jekyll + just th Docs )
 {: .no_toc }
@@ -34,10 +34,4 @@ nav_order: 2
 [] 첫 게시글 작성 
 [] commit and push
 [] userid.github.io
-```
-## Site logo
-
-```bash
-
- $ npm i javascript
 ```
